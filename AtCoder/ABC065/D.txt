@@ -1,0 +1,39 @@
+D. Built?
+
+Assume a Graph where nodes represent the cities and edges represent roads between the cities.
+
+The problem asks us to find the weight of the minimum spanning tree.
+
+We can use the famous kruskals algorithm.
+
+let m be the number of edges of the graph.
+
+In kruskals algorithm out of m edges (n-1) edges are selected in greedy manner which works in O(mlogm)
+
+In our problem we are given a complete graph (since road can be constructed between any two cities).
+so m=n*(n-1)/2
+
+So O(mlogm) is not ideal. So we need to filter the edges in given graph and then apply kruskal algorithm.
+
+So Let's find out how to filter the edges of the graph.
+
+let A(x,y) and B(p,q) be two nodes of  graph.
+
+The weight of edge between A and B is min(|x-p|,|y-q|)
+
+But instead of adding one edge we add two edges |x-p| and |y-q| (Since Kruskals algo will remove max edge anyway This
+won't be a problem.)
+
+We call |x-p|'s as x-edges and |y-q| as y-edges.
+
+Now consider three points A,B,C ST Ax < Bx < Cx
+We can see that we don't need to add an x-edge between A and C.
+
+Using the above explanation we only need atmost 2*(n-1) edges (see below)
+
+    1. sort all points(nodes) according to x-coord and consider x-edges only between adjacent vertices. (n-1) edges
+    1. sort all points(nodes) according to y-coord and consider y-edges only between adjacent vertices. (n-1) edges
+
+Now we have only 2(n-1) edges, now we can apply kruskal's algorithm on these edges.
+
+Time Complexity - O(nlogn)
