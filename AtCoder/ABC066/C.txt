@@ -1,0 +1,36 @@
+1
+. 1
+. 1 .
+. . 1 .
+. . 1 . .
+. . . 1 . .
+. . . 1 . . .
+
+.
+2 .
+. . 2
+. 2 . .
+. . . 2 .
+. . 2 . . .
+. . . . 2 . .
+
+.
+. .
+3 . .
+. . . 3
+. 3 . . .
+. . . . 3 .
+. . 3 . . .
+
+and so on
+
+let indexing start from 1
+
+Whenever a new element is added it always start at index 1.
+
+From there,
+
+in first step ith element moves forward by i;
+in next step ith element moves backward by i-1
+
+So for every 2 two steps it only moves on step ahead.
